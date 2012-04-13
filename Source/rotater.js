@@ -46,8 +46,9 @@ MGFX.Rotater = new Class({
 	
 	createFx: function(){
 		if (!this.slideFx) this.slideFx = new Fx.Elements(this.slides, {duration: this.options.transitionDuration, link: 'cancel'});
-		this.slides.each(function(slide){
-			slide.setStyle('opacity',0);
+		this.slides.each(function(slide, index){
+			if(index != this.options.startIndex || !slide.isVisible())
+				slide.setStyle('opacity',0);
 		});
 	}.protect(),
 	
