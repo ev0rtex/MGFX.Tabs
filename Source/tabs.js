@@ -39,8 +39,7 @@ MGFX.Tabs = new Class({
 	
 	createTabs: function () {
 		var that = this;
-		this.tabs.forEach(function(tab,index){
-			//need index, thats why theres the forEach
+		this.tabs.each(function(tab,index){
 			tab.addEvent('click', function(event){ 
 				event.preventDefault();
 				that.showSlide(index);
@@ -51,7 +50,7 @@ MGFX.Tabs = new Class({
 	
 	getHashIndex: function(options) {
 		var hash = window.location.hash.substring(1);
-		this.tabs.forEach(function(el, index) {
+		this.tabs.each(function(el, index) {
 			if(el.get('id') == hash) {
 				options.startIndex = index;
 			}
